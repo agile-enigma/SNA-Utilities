@@ -6,7 +6,7 @@ deriving network graph visualizations from NetworkX graph objects via PyVis.
 
 # Installation
 
-`pip install git+https://github.com/agile-enigma/SNA-Utilities`
+`pip install git+https://github.com/agile-enigma/SNA-Utilities.git`
 
 # Use
 
