@@ -32,7 +32,6 @@ The PyVis graph visualization functionality can be accessed via `sna_utils.pyvis
 
 * graph       : The NetworkX graph object to be visualized.
 * directed    : Boolean specifying whether the output visualization is directed or undirected. Defaults to False.
-* notebook    : If set to True and run from within a Jupyter notebook will output visualization in the notebook. Default is False.
 * select_menu : Display select menu. Defaults to True.
 * filter_menu : Display filter menu. Defaults to True.
 * show_buttons: Display 'physics' and 'nodes' configuration menus. Defaults to False.
