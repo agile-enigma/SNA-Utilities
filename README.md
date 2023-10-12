@@ -4,10 +4,14 @@ sna_utils is a python package containing a variety of convenience functions for 
 network analysis-related tasks. Such tasks currently include: creating NetworkX graph objects from pandas DataFrames; 
 deriving network graph visualizations from NetworkX graph objects via PyVis.
 
+# Installation
+
+`pip install git+https://github.com/agile-enigma/SNA-Utilities`
+
 After importing sna_utils via `import sna_utils` you can create a NetworkX graph object from a pandas DataFrame
 by running `sna_utils.create_nxgraph()`. Its parameters are:
 
-* edges_df    : pandas DataFrame. Must contain 'source' and 'target' column, and optionally a 'weight' column.
+* edges_df    : pandas DataFrame. Must contain 'source' and 'target' columns, and optionally a 'weight' column.
 all other columns will not factor into the creation of the NetworkX graph object.
 * weight_scale: Determines edge thickness. Defaults to 1.0.
 * cmap_       : Specifies colormap for node and edge colors. Defaults to 'viridis'. 
