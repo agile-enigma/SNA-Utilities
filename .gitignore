@@ -105,8 +105,5 @@ ENV/
 .vscode/
 .idea/
 
-# script output
-*links.txt
-
 # MacOS
 **/.DS_Store
