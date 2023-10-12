@@ -8,6 +8,8 @@ deriving network graph visualizations from NetworkX graph objects via PyVis.
 
 `pip install git+https://github.com/agile-enigma/SNA-Utilities`
 
+# Use
+
 After importing sna_utils via `import sna_utils` you can create a NetworkX graph object from a pandas DataFrame
 by running `sna_utils.create_nxgraph()`. Its parameters are:
 
