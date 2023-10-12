@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sna_utils"
+version = "0.0.1"
+authors = [
+  { name="agile-enigma", email="author@example.com" },
+]
+description = "A package containing a suite of utility tools for social network analysis"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "matplotlib ~= 3.8.0", 
+    "networkx ~= 3.1",
+    "numpy ~= 1.26.0",
+    "pandas ~= 2.1.1",
+    "pyvis ~= 0.3.1"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/agile-enigma/SNA-Utilities"
+"Bug Tracker" = "https://github.com/agile-enigma/SNA-Utilities/issues"
