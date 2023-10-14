@@ -1,3 +1,6 @@
+import pandas as pd
+import networkx as nx
+
 def to_pd_nodeslist(nx_graph):
     
     nodes_df =  pd.DataFrame([node[1] for node in 
