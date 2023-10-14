@@ -21,12 +21,13 @@ all other columns will not factor into the creation of the NetworkX graph object
 * centrality  : Specifies the centrality measure determining node and label sizing. Defaults to 
 nx.degree_centrality. 
 
-In the event that edges_df does not contain a weight column, create_nxgraph() will calculate weights. If
-the graph is undirected and contains duplicate source-target pairs, it will delete duplicates and sum the weights
-of all occurrences of that source-target pair. Additionally, for undirected graph create_nxgraph() will sort 
-source-target pairs to ensure that weights are properly determined. Finally, create_nxgraph will assign nodes to 
-a community using nx.community.louvain_community(). Node 'color' attribute will be mapped accordingly.
+In the event that edges_df does not contain a weight column, create_nxgraph() will calculate weights. Unlike
+networkx's from_pandas_edgelist() function, it will not only delete duplicate source-target pairs but sum the 
+weights of all occurrences of that source-target pair. For undirected graphs create_nxgraph() will sort nodes 
+within source-target pairs to ensure that weights are properly determined. Finally, create_nxgraph will assign
+nodes to a community using nx.community.louvain_community(). Node 'color' attribute will be mapped accordingly.
 
+The output of create_nxgraph() is intended to be prepped for input into the pyvisualize_graph function for visualization.
 The PyVis graph visualization functionality can be accessed via `sna_utils.pyvisualize_graph()`. It will return
  an .html file in the run directory containing the network visualization. Its parameters are as follows:
 
