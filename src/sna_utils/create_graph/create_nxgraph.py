@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 def create_nxgraph(edges_df, weight_scale=1.0, cmap_='viridis', directed=False, 
-                 centrality=nx.degree_centrality):
+                   centrality=nx.degree_centrality):
     """
 
     """
@@ -28,19 +28,14 @@ def create_nxgraph(edges_df, weight_scale=1.0, cmap_='viridis', directed=False,
     edges_df[['source', 'target']] = edges_df[['source', 'target']].astype(str)
     
     # determine weights and format edges
-    if not directed and weight_column:
+    if not directed:
+        if not weight_column:
+            edges_df['weight'] = 1.0
         for row_index in edges_df[edges_df.source > edges_df.target].index:
             sorted_ = sorted(edges_df.loc[row_index, ['source', 'target']])
             edges_df.loc[row_index, 'source'] = sorted_[0]
             edges_df.loc[row_index, 'target'] = sorted_[1]
-    
-    elif not directed and not weight_column:
-        edges_df['weight'] = 1.0
-        for row_index in edges_df[edges_df.source > edges_df.target].index:
-            sorted_ = sorted(edges_df.loc[row_index, ['source', 'target']])
-            edges_df.loc[row_index, 'source'] = sorted_[0]
-            edges_df.loc[row_index, 'target'] = sorted_[1]
-        
+
     elif directed and not weight_column:
         edges_df['weight'] = 1.0
         
@@ -50,11 +45,11 @@ def create_nxgraph(edges_df, weight_scale=1.0, cmap_='viridis', directed=False,
     
     # initialize graph; add edges and weight
     graph_type = nx.DiGraph() if directed else nx.Graph()
-    graph      = nx.from_pandas_edgelist(
+    graph = nx.from_pandas_edgelist(
         edges_df,
-        source      = 'source',
-        target      = 'target',
-        edge_attr   = 'weight',
+        source       = 'source',
+        target       = 'target',
+        edge_attr    = 'weight',
         create_using = graph_type
         )
     
@@ -69,11 +64,11 @@ def create_nxgraph(edges_df, weight_scale=1.0, cmap_='viridis', directed=False,
     for node in graph.nodes:
         # graph.nodes[node]['size'] = (centrality(graph)[node]  - np.mean(list(dict(centrality(graph)).values())) / 
         #                                   np.std(list(dict(centrality(graph)).values())))
-        graph.nodes[node]['value'] = abs((centrality(graph)[node]  - np.mean(list(dict(centrality(graph)).values()))) / 
+        graph.nodes[node]['value'] = abs((centrality(graph)[node] - np.mean(list(dict(centrality(graph)).values()))) / 
                                      np.std(list(dict(centrality(graph)).values())))
         graph.nodes[node]['label'] = str(node) + ': ' + str(round(centrality(graph)[node], 3))
-        graph.nodes[node]['title'] = str(node) + ' Neighbors:\n' + \
-                                     '\n'.join(list(graph.neighbors(node)))
+        # graph.nodes[node]['title'] = str(node) + ' Neighbors:\n' + \
+        #                              '\n'.join(list(graph.neighbors(node)))
         graph.nodes[node]['color'] = mpl.colors.rgb2hex(cmap.colors[graph.nodes[node]['community']]) # map partition class onto cmap rgba; convert to hex
 
     return graph
