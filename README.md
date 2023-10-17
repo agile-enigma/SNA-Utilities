@@ -58,6 +58,7 @@ by dividing mutual neighbors by the originating node's total neighbor count.
 
 Like create_nxgraph(), create_overlap_graph() will assign each node to community and map color attributes accordingly.
 Node 'value' attributes--which determine node and label sizing in pyvisualize_graph--are determined by a node's neighbor count.
+As with create_nxgraph(), the intent is for the output to be fully prepared for input into pyvisualize_graph().
 
 Parameters are as follows:
 
