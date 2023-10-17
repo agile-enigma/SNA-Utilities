@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sna_utils"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="agile-enigma", email="author@example.com" },
 ]

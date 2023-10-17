@@ -1,8 +1,9 @@
 from pyvis.network import Network
 
-def pyvisualize_net(graph, height="800px", width="100%", directed=False, algo="forceAtlas2Based", 
-                  notebook=True, select_menu=True, filter_menu=True, show_buttons=False):
+def pyvisualize_net(graph, height="800px", width="100%", algo="forceAtlas2Based", notebook=True, 
+                    select_menu=True, filter_menu=True, show_buttons=False):
     
+    directed = True if 'DiGraph' in str(type(graph)) else False
     net = Network(height=height, width=width, bgcolor="#222222", font_color="white", directed=directed,
                   notebook=notebook, select_menu=select_menu, filter_menu=filter_menu)
     
