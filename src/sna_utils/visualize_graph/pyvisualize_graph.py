@@ -1,4 +1,6 @@
 from pyvis.network import Network
+import warnings
+warnings.filterwarnings('ignore')
 
 def pyvisualize_net(nx_graph, height="800px", width="100%", algo="forceAtlas2Based", notebook=True, 
                     select_menu=True, filter_menu=True, show_buttons=False):

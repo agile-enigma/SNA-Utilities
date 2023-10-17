@@ -2,6 +2,8 @@ import matplotlib as mpl
 import networkx as nx
 import numpy as np
 import pandas as pd
+import warnings
+warnings.filterwarnings('ignore')
 
 def create_nxgraph(edges_df, weight_scale=1.0, cmap_='viridis', directed=False, 
                    centrality=nx.degree_centrality):
@@ -35,7 +37,7 @@ def create_nxgraph(edges_df, weight_scale=1.0, cmap_='viridis', directed=False,
         
     # final edges_df processing: sum weights and delete duplicate rows via groupby and apply weight_scale
     edges_df = edges_df.groupby(['source', 'target']).sum().reset_index()
-    edges_df.weight = edges_df.weight * weight_scale
+    edges_df.weight = round((edges_df.weight * weight_scale), 2)
     
     # initialize graph; add edges and weight
     graph_type = nx.DiGraph() if directed else nx.Graph()

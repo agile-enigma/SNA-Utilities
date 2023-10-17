@@ -67,6 +67,8 @@ Like create_nxgraph(), create_overlap_graph() will assign each node to a communi
 Node 'value' attributes--which determine node and label sizing in pyvisualize_graph()--are determined by a node's 
 neighbor count. As with create_nxgraph(), the intent is for the output to be fully prepared for input into pyvisualize_graph().
 
+If directed is set to False, create_overlap_graph() will ignore the 'incoming' parameter.
+
 Parameters are as follows:
 
 * **edges_df**: pandas DataFrame object
@@ -77,7 +79,8 @@ Parameters are as follows:
 ### mutual_neighbors()
 
 `sna_utils.mutual_neighbors()` outputs mutual neighbors between two input nodes contained within a NetworkX
-graph object. It will automatically determine whether the input NetworkX graph is directed or not.
+graph object. It will automatically determine whether the input NetworkX graph is directed or not. If input 
+NetworkX graph object is not directed mutual_neighbors() ignore the 'incoming' parameter. 
 
 Parameters are as follows:
 

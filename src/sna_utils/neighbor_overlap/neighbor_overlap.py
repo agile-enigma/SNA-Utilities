@@ -15,6 +15,8 @@ def create_overlap_graph(edges_df, cmap_='viridis', directed=False, incoming=Fal
     if directed == True and incoming == True:
         graph.add_edges_from(map(lambda x: (x.target, x.source), edges_df.itertuples()))
     else:
+        if directed == False and incoming == True:
+            print('incoming set to True even though graph is undirected. ignoring incoming parameter...')
         graph.add_edges_from(map(lambda x: (x.source, x.target), edges_df.itertuples()))
 
     overlap_graph = nx.DiGraph()
@@ -59,6 +61,9 @@ def mutual_neighbors(nx_graph, node1, node2, incoming=False):
                set(nx.neighbors(reversed_graph, node2))
         )
     else:
+        if directed == False and incoming == True: 
+            print('incoming set to True even though graph is directed. ignoring incoming parameter...')
+
         return set(nx.neighbors(nx_graph, node1)).intersection(
                set(nx.neighbors(nx_graph, node2))
         )
