@@ -2,7 +2,8 @@
 
 sna_utils is a python package containing a variety of convenience functions for automating various social
 network analysis-related tasks. Such tasks currently include: creating NetworkX graph objects from pandas DataFrames; 
-deriving network graph visualizations from NetworkX graph objects via PyVis; building neighbor overlap graphs; .
+deriving network graph visualizations from NetworkX graph objects via PyVis; building neighbor overlap graphs; and
+converting nodes + node attributes contained in a NetworkX graph object to a pandas DataFrame.
 
 # Installation
 
