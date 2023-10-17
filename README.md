@@ -65,7 +65,7 @@ Parameters are as follows:
 * cmap_   : Specifies cmap to be used to map node community assignment to 'color'. Default is 'viridis'.
 
 ## convert_graph
-`sna_utils.to_pd_nodelist()` converts the nodes contained in a NetworkX graph object to a pandas DataFrame. 
+`sna_utils.to_pd_nodeslist()` converts the nodes contained in a NetworkX graph object to a pandas DataFrame. 
 Each node attribute will be contained in a distinct column.
 
 * nx_graph: NetworkX graph object to be converted to a pandas DataFrame.
