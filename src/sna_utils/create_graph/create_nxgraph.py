@@ -13,8 +13,7 @@ def create_nxgraph(edges_df, weight_scale=1.0, cmap_='viridis', directed=False,
         raise TypeError('edges_df type must be pandas.core.frame.DataFrame.')
 
     # format dtypes and column headers
-    for col in edges_df.columns:
-        edges_df.rename(columns={col: col.lower()}, inplace=True)
+    edges_df.columns = map(str.lower, edges_df.columns)
         
     if 'weight' in edges_df.columns:
         weight_column=True

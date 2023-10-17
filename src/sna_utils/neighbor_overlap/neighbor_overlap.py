@@ -5,8 +5,10 @@ from itertools import combinations
 
 def create_overlap_graph(edges_df, cmap_='viridis', directed=False, incoming=False):
     
-    for col in edges_df.columns: 
-        edges_df.rename(columns={col: col.lower()}, inplace=True)
+    if not type(edges_df) == type(pd.DataFrame()):
+        raise TypeError('edges_df type must be pandas.core.frame.DataFrame')
+
+    edges_df.columns = map(str.lower, edges_df.columns)
     edges_df = edges_df[['source', 'target']].astype(object)
     
     graph = nx.DiGraph() if directed else nx.Graph()
@@ -45,6 +47,9 @@ def create_overlap_graph(edges_df, cmap_='viridis', directed=False, incoming=Fal
 
 
 def mutual_neighbors(nx_graph, node1, node2, incoming=False):
+
+    if 'networkx' not in str(type(nx_graph)):
+        raise TypeError('nx_graph must be an nx graph object.')
 
     directed = True if 'DiGraph' in str(type(nx_graph)) else False
     if directed == True and incoming == True:

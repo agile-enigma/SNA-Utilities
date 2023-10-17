@@ -1,9 +1,13 @@
 from pyvis.network import Network
 
-def pyvisualize_net(graph, height="800px", width="100%", algo="forceAtlas2Based", notebook=True, 
+def pyvisualize_net(nx_graph, height="800px", width="100%", algo="forceAtlas2Based", notebook=True, 
                     select_menu=True, filter_menu=True, show_buttons=False):
     
-    directed = True if 'DiGraph' in str(type(graph)) else False
+    if 'networkx' not in str(type(nx_graph)):
+        raise TypeError('nx_graph must be an nx graph object.')
+
+    directed = True if 'DiGraph' in str(type(nx_graph)) else False
+
     net = Network(height=height, width=width, bgcolor="#222222", font_color="white", directed=directed,
                   notebook=notebook, select_menu=select_menu, filter_menu=filter_menu)
     
@@ -40,5 +44,7 @@ def pyvisualize_net(graph, height="800px", width="100%", algo="forceAtlas2Based"
           }
         }
     """)
-    net.from_nx(graph)
-    return net.show(str(graph) + ".html")
+
+    net.from_nx(nx_graph)
+
+    return net.show(str(nx_graph) + ".html")
