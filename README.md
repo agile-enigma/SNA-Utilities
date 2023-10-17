@@ -2,7 +2,7 @@
 
 sna_utils is a python package containing a variety of convenience functions for automating various social
 network analysis-related tasks. Such tasks currently include: creating NetworkX graph objects from pandas DataFrames; 
-deriving network graph visualizations from NetworkX graph objects via PyVis.
+deriving network graph visualizations from NetworkX graph objects via PyVis; building neighbor overlap graphs; .
 
 # Installation
 
@@ -35,7 +35,8 @@ Node 'color' attributes will be mapped accordingly.
 ## visualize_graph
 The output of create_nxgraph() is intended to be prepped for input into the pyvisualize_graph function for visualization.
 The PyVis graph visualization functionality can be accessed via `sna_utils.pyvisualize_graph()`. It will return
- an .html file in the run directory containing the network visualization. 
+ an .html file in the run directory containing the network visualization. pyvisualize_graph() will automatically
+determined whether the input NetworkX graph object is directed or not.
 
 Parameters are as follows:
 
@@ -61,8 +62,18 @@ Parameters are as follows:
 
 * edges_df: pandas DataFrame object
 * directed: Specifies whether the graph is directed. Default is False.
-* incoming: Specifies whether overlap is determined by incoming or outgoing edges. Default is False.
+* incoming: Specifies whether overlap is determined by incoming or outgoing edges for directed graphs. Default is False.
 * cmap_   : Specifies cmap to be used to map node community assignment to 'color'. Default is 'viridis'.
+
+`sna_utils.mutual_neighbors()` outputs mutual neighbors between two input nodes contained within a NetworkX
+graph object. Automatically determines whether the input NetworkX graph is directed or not.
+
+Parameters are as follows:
+
+* nx_graph: NetworkX graph object.
+* node1   : Node contained within nx_graph.
+* node2   : Node contained within nx_graph.
+* incoming: Specifies whether overlap is determined by incoming and outgoing edges for directed graphs. Default is False.
 
 ## convert_graph
 `sna_utils.to_pd_nodeslist()` converts the nodes contained in a NetworkX graph object to a pandas DataFrame. 
