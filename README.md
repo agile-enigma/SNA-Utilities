@@ -11,6 +11,8 @@ To install sna_utils into the site-packages directory of your virtual environmen
 
 `pip install git+https://github.com/agile-enigma/SNA-Utilities.git`
 
+sna_utils is now ready to be imported within your virtual environment.
+
 # Usage
 
 ## create_graph
