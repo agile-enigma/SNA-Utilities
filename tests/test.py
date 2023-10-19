@@ -12,7 +12,7 @@ class Test(unittest.TestCase):
                                )
         neighborCount_in = len(mutual_neighbors(self.graph, 'Agdchan',
                                                             'novaresistenciabrasil',
-                                                            incoming=True)
+                                                             incoming=True)
                                )
         self.assertNotEqual(neighborCount_out, neighborCount_in)
 

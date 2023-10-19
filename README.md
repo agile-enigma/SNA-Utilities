@@ -7,6 +7,8 @@ DataFrames; and converting nodes + node attributes contained in a NetworkX graph
 
 # Installation
 
+To install sna_utils into the site-packages directory of your virtual environment, run:
+
 `pip install git+https://github.com/agile-enigma/SNA-Utilities.git`
 
 # Usage
