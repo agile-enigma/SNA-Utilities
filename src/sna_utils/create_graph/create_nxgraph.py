@@ -60,8 +60,8 @@ def create_nxgraph(edges_df, weight_scale=1.0, cmap_='viridis', directed=False,
     for node in graph.nodes:
         # graph.nodes[node]['size']      = (centrality(graph)[node]  - np.mean(list(dict(centrality(graph)).values())) / 
         #                                   np.std(list(dict(centrality(graph)).values())))
-        graph.nodes[node]['value']     = abs((centrality(graph)[node] - np.mean(list(dict(centrality(graph)).values()))) / 
-                                        np.std(list(dict(centrality(graph)).values())))
+        graph.nodes[node]['value']     = round(abs((centrality(graph)[node] - np.mean(list(dict(centrality(graph)).values()))) / 
+                                         np.std(list(dict(centrality(graph)).values()))), 2)
         graph.nodes[node]['label']     = str(node) + ': ' + str(round(centrality(graph)[node], 3))
         # graph.nodes[node]['title']     = str(node) + ' Neighbors:\n' + '\n'.join(list(graph.neighbors(node)))
         graph.nodes[node]['community'] = community[node]
