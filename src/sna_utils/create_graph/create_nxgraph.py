@@ -14,8 +14,6 @@ def create_nxgraph(
     directed=False,
     centrality=nx.degree_centrality,
 ):
-    """ """
-
     if not type(edges_df) is type(pd.DataFrame()):
         raise TypeError("edges_df type must be pandas.core.frame.DataFrame.")
 
