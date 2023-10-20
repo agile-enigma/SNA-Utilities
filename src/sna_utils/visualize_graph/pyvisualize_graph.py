@@ -12,7 +12,7 @@ def pyvisualize_net(
     notebook=True,
     select_menu=True,
     filter_menu=True,
-    show_buttons=False,
+    show_buttons=False
 ):
     if "networkx" not in str(type(nx_graph)):
         raise TypeError("nx_graph must be an nx graph object.")

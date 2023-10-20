@@ -10,7 +10,7 @@ def create_overlap_graph(
     directed=False,
     incoming=False
 ):
-    if not type(edges_df) is type(pd.DataFrame()):
+    if not isinstance(edges_df, pd.DataFrame):
         raise TypeError("edges_df type must be pandas.core.frame.DataFrame")
 
     edges_df.columns = map(str.lower, edges_df.columns)

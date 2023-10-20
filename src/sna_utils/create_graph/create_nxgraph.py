@@ -12,9 +12,9 @@ def create_nxgraph(
     weight_scale=1.0,
     cmap_="viridis",
     directed=False,
-    centrality=nx.degree_centrality,
+    centrality=nx.degree_centrality
 ):
-    if not type(edges_df) is type(pd.DataFrame()):
+    if not isinstance(edges_df, pd.DataFrame):
         raise TypeError("edges_df type must be pandas.core.frame.DataFrame.")
 
     # format dtypes and column headers
