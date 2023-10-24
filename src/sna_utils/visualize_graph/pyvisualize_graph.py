@@ -9,7 +9,7 @@ def pyvisualize_net(
     height="800px",
     width="100%",
     algo="forceAtlas2Based",
-    notebook=True,
+    notebook=False,
     select_menu=True,
     filter_menu=True,
     show_buttons=False
